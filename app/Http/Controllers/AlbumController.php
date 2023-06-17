@@ -164,17 +164,13 @@ public function __construct(){
 
         if($request->has('image')){
             // Album::create()
-            // dd($request->file('image'));
-            // $album->addMedia($request->image)->toMediaCollection();
             $album->attachMedia($request->file('image'));
-    
+        }
             Album::query()->update([
                 'url' => $album->fetchFirstMedia()['file_url'],
             ]);
-
-            // dd($album->fetchFirstMedia()->getPath());
              
-           }
+           
 
     }
        
