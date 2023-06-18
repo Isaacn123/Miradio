@@ -35,6 +35,9 @@ html, body{
   height: 100%;
 }
 
+.colord{
+  color:white !important;
+}
 /* Navbar ====================================== */
 
 .navbar {

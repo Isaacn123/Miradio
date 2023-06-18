@@ -6,6 +6,8 @@ use App\Models\Song;
 use Illuminate\Http\Request;
 use App\Models\Album;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Support\Str;
+
 class SongsController extends Controller
 {
     /**
@@ -31,6 +33,10 @@ class SongsController extends Controller
      */
     public function store(Request $request, Album $album)
     {
+
+        $ds = Str::uuid('uuid')->toString();
+
+        // dd($ds);
         //
         // dd($album->id);
         // @session()->flush('success','audio music has been successfully add to the ALBUM');
@@ -41,7 +47,8 @@ class SongsController extends Controller
         ]);
         if($request->has('audio') && $request->has('title')){
             //   dd($request->audio);
-            $result = $request->audio->storeOnCloudinaryAs('audios', 'songs');
+              
+            $result = $request->audio->storeOnCloudinaryAs('audios', "songs_".$ds );
             // $result = $request->audio->uploadFile();
 
             if($request){

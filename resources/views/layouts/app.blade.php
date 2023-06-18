@@ -41,9 +41,11 @@
                 <a class="navbar-brand" href="dashboard.php">MIRACLE RADIO APP </a>
               </div> -->
 
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand colord" href="{{ url('/') }}">
                     <!-- {{ config('app.name', 'Laravel') }} -->
-                    <a class="navbar-brand" href="dashboard.php">MIRACLE RADIO APP </a>
+                    @auth
+                    <a class="navbar-brand colord" href="#">MIRACLE RADIO APP </a>
+                    @endauth
                 </a>
 
 
