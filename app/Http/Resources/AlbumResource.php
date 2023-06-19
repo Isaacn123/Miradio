@@ -18,6 +18,7 @@ class AlbumResource extends JsonResource
         return [
         'id' => $this->id,
         'title' => $this->title,
+        'featured_albums' => $this->featured_albums,
         'url' => $this->url,
         'songs' => $this->songs
         ];
