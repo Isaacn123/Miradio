@@ -151,7 +151,7 @@ public function __construct(){
                }
     
              
-             Album::query()->update([
+             Album::where("id", $album->id)->update([
                 'url' => $album->fetchFirstMedia()['file_url'],
             ]);
             // dd($album->fetchFirstMedia()['file_url']);
@@ -166,7 +166,7 @@ public function __construct(){
             // Album::create()
             $album->attachMedia($request->file('image'));
         }
-            Album::query()->update([
+            Album::where("id", $album->id)->query()->update([
                 'url' => $album->fetchFirstMedia()['file_url'],
             ]);
              

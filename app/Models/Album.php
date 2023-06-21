@@ -16,6 +16,7 @@ class Album extends Model
     protected $fillable = [
         'title',
         'featured_albums',
+        'artist',
         'url'
     ];
 
