@@ -57,7 +57,9 @@ public function __construct(){
         ]);
         
         Album::create([
-            'title' => $request->title
+            'title' => $request->title,
+            'artist' => $request->artist,
+            'description' => $request->description
         ]);
 
 
@@ -103,7 +105,9 @@ public function __construct(){
     ]);
     
       $album->update([
-        'title' => $request->title
+        'title' => $request->title,
+        'artist' => $request->artist,
+        'description' => $request->description
       ]);
 
       return redirect()->route('albums');
@@ -149,8 +153,7 @@ public function __construct(){
               $album->attachMedia($request->file('image'));
                  
                }
-    
-             
+               
              Album::where("id", $album->id)->update([
                 'url' => $album->fetchFirstMedia()['file_url'],
             ]);

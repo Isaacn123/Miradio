@@ -17,7 +17,8 @@ class Album extends Model
         'title',
         'featured_albums',
         'artist',
-        'url'
+        'url',
+        'description'
     ];
 
 

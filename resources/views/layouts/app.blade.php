@@ -81,7 +81,9 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li> -->
                             @endif
-                            <!-- <li class="nav-item">M</li> -->
+
+                   <!-- <li class="nav-item">M</li> -->
+                   
                     @else
                     <li class="nav-item dropdown" style="text-decoration:none;">
                                 <a style="text-decoration:none;" id="navbarDropdown" class="nav-link text-white  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
