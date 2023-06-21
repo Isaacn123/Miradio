@@ -19,7 +19,7 @@
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1"><i class="material-icons">playlist_add_check_circle</i></span>
-  <input type="text" class="form-control" name='artist' placeholder="Album Name" aria-label="Artist Name" aria-describedby="basic-addon1">
+  <input type="text" class="form-control" name='artist' placeholder="Artist Name" aria-label="Artist Name" aria-describedby="basic-addon1">
 </div>
 
     <button type="submit" class="btn btn-primary">Create Now</button>
