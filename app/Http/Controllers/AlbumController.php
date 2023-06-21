@@ -169,7 +169,7 @@ public function __construct(){
             // Album::create()
             $album->attachMedia($request->file('image'));
         }
-            Album::where("id", $album->id)->query()->update([
+            Album::where("id", $album->id)->update([
                 'url' => $album->fetchFirstMedia()['file_url'],
             ]);
              
