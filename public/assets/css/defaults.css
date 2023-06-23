@@ -46,6 +46,18 @@ html, body{
   line-height: 1.33 !important;
   border-radius: 35px !important;
 }
+
+.hidde{
+  @media (max-width: 767.98px) {
+    .aside{
+        display: none !important;
+    }
+  }
+
+  
+}
+
+
 /* Navbar ====================================== */
 
 .navbar {
@@ -7517,11 +7529,11 @@ fieldset[disabled] .form-control {
   transition: all 0.5s;
   font-family: "Roboto", sans-serif;
   background: #fdfdfd;
-  width: 300px;
+  /* width: 300px; */
   overflow: hidden;
   display: inline-block;
   height: calc(100vh - 70px);
-  position: fixed;
+  /* position: fixed; */
   top: 70px;
   left: 0;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
