@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('category_name', 255);
             $table->string('category_image', 255)->nullable();
             $table->integer('featured')->default(0);
-            $table->string('slug')->default('category-sample-slug');
+            $table->string('slug')->default('slug');
             $table->timestamp('last_update')->default(DB::raw('CURRENT_TIMESTAMP'));
             // $table->timestamp('last_update')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             // $table->timestamp('last_update')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
