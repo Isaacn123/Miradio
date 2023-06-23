@@ -4,17 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 
-class Category extends Model
+
+class Message extends Model
 {
     use HasFactory, MediaAlly;
 
     protected $fillable = [
-        'category_name',
-        'category_image',
-        'featured',
-        'slug'
+       'cid',
+       'title',
+       'image_cover',
+       'stream_url',
+
     ];
+
+
 }

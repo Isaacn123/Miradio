@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->integer('cid');
+            $table->bigIncrements('id');
             $table->string('category_name', 255);
-            $table->string('category_image', 255);
+            $table->string('category_image', 255)->nullable();
             $table->integer('featured')->default(0);
+            $table->string('slug')->default('category-sample-slug');
             $table->timestamp('last_update')->default(DB::raw('CURRENT_TIMESTAMP'));
             // $table->timestamp('last_update')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             // $table->timestamp('last_update')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

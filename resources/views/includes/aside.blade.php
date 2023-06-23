@@ -1,4 +1,4 @@
-<section>
+<section style="">
      <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
@@ -38,9 +38,16 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{route('category.index')}}">
                             <i class="material-icons">view_list</i>
                             <span>Manage Category</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="{{route('message.index')}}">
+                            <i class="material-icons">view_list</i>
+                            <span>Manage Messages</span>
                         </a>
                     </li>
 
