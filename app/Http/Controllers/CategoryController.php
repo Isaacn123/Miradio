@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {
@@ -18,7 +19,7 @@ class CategoryController extends Controller
     {
         //
         $limit = 25;
-        return  view('category.index')->with('categories', Category::orderBy('id', 'desc')->paginate($limit));
+        return  view('category.index')->with('categories', CategoryResource::collection(Category::orderBy('id', 'desc')->paginate($limit)));
         
     }
 
@@ -120,4 +121,18 @@ class CategoryController extends Controller
   
         return response()->json(['success'=>'Status change successfully.']);
     }
+
+    public function fetch(){
+        return CategoryResource::collection(Category::with('messages')->orderBy('id', 'desc')->paginate(25));
+      }
+
+      public function single_category($id){
+       $category = Category::where('id', $id)->with('messages')->first();
+
+       return response([
+        'data' =>  $category,
+        'success' => "successfully retrieved."
+       ]);
+       
+      }
 }

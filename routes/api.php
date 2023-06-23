@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,5 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('albumsdata',[AlbumController::class, 'fetch']);
+
+Route::get('categories',[CategoryController::class, 'fetch']);
+
+Route::get('messages',[MessageController::class, 'fetch_messages']);
+
+Route::get('/messages/{id}', [MessageController::class, 'single_message']);
+Route::get('/category/{id}', [CategoryController::class, 'single_category']); 
 
 

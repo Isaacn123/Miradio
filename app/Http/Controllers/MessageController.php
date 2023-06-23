@@ -9,6 +9,7 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use App\Http\Resources\MessageResource;
 class MessageController extends Controller
 {
     /**
@@ -142,5 +143,20 @@ class MessageController extends Controller
         $message->delete();
         $select->delete();
         return redirect()->back();
+    }
+
+    public function fetch_messages(){
+      return  MessageResource::collection(Message::with('category')->paginate(25));
+    }
+
+    public function single_message($id){
+
+     $message = Message::where('id',$id)->first(); 
+     
+     return response([
+        'data' =>  $message,
+        'success' => "successfully retrieved."
+     ]);
+
     }
 }

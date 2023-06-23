@@ -20,4 +20,10 @@ class Message extends Model
     ];
 
 
+    public function category(){
+        // ,'company_id', 'id'
+        return $this->belongsTo('App\Models\Category','cid', 'id');
+    }
+
+
 }

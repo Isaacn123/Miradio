@@ -17,4 +17,10 @@ class Category extends Model
         'featured',
         'slug'
     ];
+
+    public function messages(){
+    
+        return $this->hasMany('App\Models\Message','cid', 'id');  
+    }
 }
+
