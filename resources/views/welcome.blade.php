@@ -39,11 +39,13 @@
     
 
       <span class="border-0">
-                    <center>
+                    <center class="link">
+                        <a href="{{Route::has('login') ? url('/home') : route('login') }}" style="text-decoration: none;background-color: transparent;">
                     <img src="{{ asset('assets/images/ic_launcher.png') }}" width="100px" height="100px">
                         <br>
                         <div class="custom-padding1">MIRACLE RADIO APP</div>
                 
+                       </a>
                     </center>
                     
                    </span>

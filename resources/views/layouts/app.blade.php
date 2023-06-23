@@ -46,19 +46,21 @@
       
 
         <!-- Left Sidebar -->
-        @auth
+      
     
         <!-- #END# Left Sidebar -->
 
         <div class="container-fluid">
             <!-- <div class="row min-vh-100 flex-column flex-md-row"> -->
             <div class="row flex-nowrap">
+                @auth
              @include('includes.aside')
+             @endauth
              @include('includes.main_content')
             </div>
         </div>
         
-        @endauth
+      
 
         <!-- <section class="content"> -->
 
