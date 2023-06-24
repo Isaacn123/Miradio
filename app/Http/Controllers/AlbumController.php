@@ -130,9 +130,6 @@ public function __construct(){
     {
         //
 
-     
- 
-
     //    return redirect()->back();
 
     $request->validate([

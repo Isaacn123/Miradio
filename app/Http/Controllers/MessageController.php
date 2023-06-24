@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\Audio;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
@@ -83,6 +84,12 @@ class MessageController extends Controller
     public function show(Message $message)
     {
         //
+
+        $photo = $message->fetchFirstMedia();
+        // dd($album->id);
+        $audios = Audio::where('message_id', $message->id)->get();
+        // dd($songs);
+        return view('messages.show', compact('message','photo','audios'));
     }
 
     /**
@@ -146,7 +153,7 @@ class MessageController extends Controller
     }
 
     public function fetch_messages(){
-      return  MessageResource::collection(Message::with('category')->paginate(25));
+      return  MessageResource::collection(Message::with('category','audios')->paginate(25));
     }
 
     public function single_message($id){
@@ -155,8 +162,68 @@ class MessageController extends Controller
      
      return response([
         'data' =>  $message,
-        'success' => "successfully retrieved."
+        'success' => "successfully retrieved."    
      ]);
 
     }
+
+
+
+    public function upload(Request $request, Message $message)
+    {
+        //
+
+    //    return redirect()->back();
+    // dd($message->id);
+
+    $request->validate([
+        "image" => 'bail|required',
+    ]);
+    
+
+    if (DB::table('media')->where('medially_id', $message->id)->exists()) {
+        // DB::table('media')->where('medially_id', $album->id)->delete();
+        // dd($album->fetchFirstMedia());
+        $id = $message->id;
+
+        
+        $select = Media::where('medially_id',$id)->firstOrFail();
+        
+        // $select->delete();
+        if($select){
+            if($request->has('image')){
+
+              $message->updateMedia($request->image);
+                 
+               }
+               
+             Message::where("id", $message->id)->update([
+                'image_cover' => $message->fetchFirstMedia()['file_url'],
+            ]);
+            // dd($album->fetchFirstMedia()['file_url']);
+
+        }
+
+    
+
+    }else{
+
+        if($request->has('image')){
+            // Album::create()
+            $message->attachMedia($request->file('image'));
+        }
+            Message::where("id", $message->id)->update([
+                'image_cover' => $message->fetchFirstMedia()['file_url'],
+            ]);
+             
+           
+
+    }
+       
+       return redirect()->back();
+
+    
 }
+}
+
+

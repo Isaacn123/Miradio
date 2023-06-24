@@ -25,5 +25,10 @@ class Message extends Model
         return $this->belongsTo('App\Models\Category','cid', 'id');
     }
 
+    public function audios(){
+        // ,'company_id', 'id'
+        return $this->hasMany('App\Models\Audio');
+    }
+
 
 }

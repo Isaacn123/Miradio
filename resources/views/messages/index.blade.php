@@ -33,7 +33,7 @@
            
 
                   <td>{{$message->id}}</td>
-                  <td><a href="{{ route('category.show', 1)}}">{{$message->title}}</a></td>
+                  <td><a href="{{ route('message.show', $message->id)}}">{{$message->title}}</a></td>
                   <td>
   
       <img src="{{$message->image_cover}}" 
