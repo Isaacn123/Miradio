@@ -46,6 +46,7 @@ Route::post('songs/{album}/store',[App\Http\Controllers\SongsController::class, 
 Route::get('audios/{message}/create',[App\Http\Controllers\AudioController::class, 'create']  )->name('audios.create')->middleware('auth');
 Route::post('audios/{message}/store',[App\Http\Controllers\AudioController::class, 'store']  )->name('audios.store')->middleware('auth');
 Route::post('message/{message}/upload',[App\Http\Controllers\MessageController::class, 'upload']  )->name('message.upload')->middleware('auth');
+// Route::post('message/{message}/create',[App\Http\Controllers\MessageController::class, 'create']  )->name('message.create')->middleware('auth');
 
 
 // '<img src="https://res.cloudinary.com/dz3huxbpc/image/upload/v1687513756/vvol4mh1dlgzdr1og1he.jpg"  class='avatar rounded lg' alt='Message Image' height='200px' width='250px'>'; 

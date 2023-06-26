@@ -20,7 +20,7 @@ class MessageResource extends JsonResource
             'image_cover' => $this->image_cover,
             'stream_url' => $this->stream_url,
             'category' => $this->category,
-            'audios' => $this->audios,
+            // 'audios' => new UserResource($this->audios)
         ];
     }
 }

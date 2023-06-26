@@ -56,7 +56,7 @@
               </select>
             </div>
 
- @if($message)
+ @if(isset($message))
    <span class="badge text-bg-warning">
    <div class="h6 mt-2">
    {{ App\Models\Category::find($message->cid)->category_name }}

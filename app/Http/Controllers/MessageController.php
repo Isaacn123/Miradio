@@ -203,9 +203,7 @@ class MessageController extends Controller
             // dd($album->fetchFirstMedia()['file_url']);
 
         }
-
-    
-
+        
     }else{
 
         if($request->has('image')){
