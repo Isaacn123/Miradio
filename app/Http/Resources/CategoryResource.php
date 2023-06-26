@@ -19,7 +19,7 @@ class CategoryResource extends JsonResource
             'category_name' => $this->category_name,
             'category_image' => $this->category_image,
             'featured' => $this->featured,
-            'messages' => $this->messages
+            'messages' =>$this->messages
         ];
     }
 }

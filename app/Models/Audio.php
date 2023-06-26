@@ -16,5 +16,8 @@ class Audio extends Model
         'file_type',
         'size'
     ];
-
+    public function message(){
+        // ,'company_id', 'id'
+        return $this->belongsTo('App\Models\Message','audio_id', 'id');
+    }
 }

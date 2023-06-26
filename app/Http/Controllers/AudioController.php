@@ -56,13 +56,17 @@ class AudioController extends Controller
             // $result = $request->audio->uploadFile();
 
             if($request){
-                Audio::create([
+               $audio =  Audio::create([
                     'message_type' => 'App\Models\Message',
                     'message_id' => $message->id,
                     'file_url' => $result->getPath(),
                     'audio_title' => $request->title,
                     'file_type' => $result->getFileType(),
                     'size' => $result->getSize(),
+                ]);
+
+                Message::where('id',$message->id)->update([
+                    'audio_id' => $audio->id
                 ]);
             }
       

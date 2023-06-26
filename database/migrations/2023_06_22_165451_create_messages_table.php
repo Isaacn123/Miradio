@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->integer('cid');
+            $table->integer('audio_id')->default(0);
             $table->string('title');
             $table->integer('medially_id')->nullable();
             $table->string('image_cover')->nullable();

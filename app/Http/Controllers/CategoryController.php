@@ -9,6 +9,8 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\MessageResource;
+use App\Models\Message;
 
 class CategoryController extends Controller
 {
@@ -135,4 +137,17 @@ class CategoryController extends Controller
        ]);
        
       }
+
+
+
+      public function single_message($id){
+
+        $message = Message::where('id',$id)->with('audios')->first(); 
+        
+        return response([
+           'data' =>  $message,
+           'success' => "successfully retrieved."    
+        ]);
+   
+       }
 }
