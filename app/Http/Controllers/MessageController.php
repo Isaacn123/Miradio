@@ -160,7 +160,7 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         //
-        $select = Media::where('medially_id', $messages->id)->firstOrFail();
+        $select = Media::where('medially_id', $message->id)->firstOrFail();
         $message->delete();
         $select->delete();
         return redirect()->back();
