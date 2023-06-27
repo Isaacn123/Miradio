@@ -114,8 +114,20 @@ class MessageController extends Controller
         ]);
         
           if($request->has('title')){
-            $message->update([
-                'title' => $message->title,
+            // $message->update([
+            //     'title' => $message->title,
+            //   ]);
+            Message::where('id',$message->id)->update([
+                'title' => $request->title,
+              ]);
+          }
+
+          if($request->has('categoryid')){
+            // $message->update([
+            //     'title' => $message->title,
+            //   ]);
+            Message::where('id',$message->id)->update([
+                'cid' => $request->categoryid,
               ]);
           }
          
