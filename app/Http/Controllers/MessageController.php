@@ -57,6 +57,9 @@ class MessageController extends Controller
             if($request->has('audio_file')){
            
                 $result = $request->audio_file->storeOnCloudinaryAs('messages', "message_".$ds );
+                Message::where('id', $messages->id)->update([
+                    'stream_url' => $result->getPath(),
+                   ]);
     
             }
     
@@ -69,7 +72,6 @@ class MessageController extends Controller
           $select = Media::where('medially_id', $messages->id)->firstOrFail();
           Message::where('id', $messages->id)->update([
            'image_cover' => $messages->fetchFirstMedia()['file_url'],
-           'stream_url' => $result->getPath(),
            'medially_id' =>   $select->id,
           ]);
         
