@@ -172,7 +172,7 @@ class MessageController extends Controller
 
     public function single_message($id){
 
-     $message = Message::where('id',$id)->first(); 
+     $message = MessageResource::collection(Message::where('cid',$id)->get()); 
      
      return response([
         'data' =>  $message,

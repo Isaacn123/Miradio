@@ -29,6 +29,7 @@ Route::get('messages',[MessageController::class, 'fetch_messages']);
 
 // Route::get('/messages/{id}', [MessageController::class, 'single_message']);
 Route::get('/category/{id}', [CategoryController::class, 'single_category']); 
-Route::get('categories/{id}/message',[CategoryController::class, 'single_message']);
+// Route::get('categories/{id}/message',[CategoryController::class, 'single_message']);
+Route::get('categories/{id}/message',[MessageController::class, 'single_message']);
 
 
