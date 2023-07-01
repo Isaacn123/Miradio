@@ -37,7 +37,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <div class="font-12">applicationId (Package Name)</div>
-                                            <input type="text" class="form-control" value="{{App\Models\Setting::first()->id ? App\Models\Setting::first()->package_name :'' }}" name="package_name" id="package_name" value="" required>
+                                            <input type="text" class="form-control" value="{{App\Models\Setting::first() ? App\Models\Setting::first()->package_name :'' }}" name="package_name" id="package_name" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <div class="font-12">FCM Server Key</div>
-                                            <textarea class="form-control" rows="3" name="app_fcm_key" id="app_fcm_key" required>{{App\Models\Setting::first()->id ? App\Models\Setting::first()->app_fcm_key :'' }}</textarea>
+                                            <textarea class="form-control" rows="3" name="app_fcm_key" id="app_fcm_key" required>{{App\Models\Setting::first() ? App\Models\Setting::first()->app_fcm_key :'' }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <div class="font-12">OneSignal APP ID</div>
-                                            <input type="text" class="form-control" name="onesignal_app_id" id="onesignal_app_id" value="{{App\Models\Setting::first()->id ? App\Models\Setting::first()->onesignal_app_id :'' }}" required>
+                                            <input type="text" class="form-control" name="onesignal_app_id" id="onesignal_app_id" value="{{App\Models\Setting::first() ? App\Models\Setting::first()->onesignal_app_id :'' }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <div class="font-12">OneSignal Rest API Key</div>
-                                            <input type="text" class="form-control" name="onesignal_rest_api_key" id="onesignal_rest_api_key" value="{{App\Models\Setting::first()->id ? App\Models\Setting::first()->onesignal_rest_api_key :'' }}" required>
+                                            <input type="text" class="form-control" name="onesignal_rest_api_key" id="onesignal_rest_api_key" value="{{App\Models\Setting::first() ? App\Models\Setting::first()->onesignal_rest_api_key :'' }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -136,10 +136,10 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <div class="font-12">API Key</div>
-                                            <input type="text" class="form-control" name="api_key" id="api_key" value="{{App\Models\Setting::first()->id ? App\Models\Setting::first()->api_key :'' }}" required>
+                                            <input type="text" class="form-control" name="api_key" id="api_key" value="{{App\Models\Setting::first() ? App\Models\Setting::first()->api_key :'' }}" required>
                                         </div>
                                         <br>
-                                        <a href="{{route('setting.edit',App\Models\Setting::first()->id )}}" class="btn bg-blue waves-effect">Change API Key</a>
+                                        <a href="{{route('setting.edit',App\Models\Setting::first() ? App\Models\Setting::first()->id : '' )}}" class="btn bg-blue waves-effect">Change API Key</a>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <div class="font-12">Privacy Policy</div>
-                                            <textarea class="form-control" name="privacy_policy" id="privacy_policy" class="ckeditor form-control" cols="60" rows="10" required>{{App\Models\Setting::first()->id ? App\Models\Setting::first()->privacy_policy :'' }}</textarea>
+                                            <textarea class="form-control" name="privacy_policy" id="privacy_policy" class="ckeditor form-control" cols="60" rows="10" required>{{App\Models\Setting::first() ? App\Models\Setting::first()->privacy_policy :'' }}</textarea>
 
                                          
                                         </div>
