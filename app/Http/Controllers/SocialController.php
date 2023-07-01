@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Social;
 use Illuminate\Http\Request;
-
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Str;
+use App\Http\Resources\SocialResource;
 class SocialController extends Controller
 {
     /**
@@ -13,7 +17,9 @@ class SocialController extends Controller
     public function index()
     {
         //
-    }
+        $socials = Social::all();
+        return view('socials.index', compact('socials'));
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -21,6 +27,7 @@ class SocialController extends Controller
     public function create()
     {
         //
+        return view('socials.create');
     }
 
     /**
@@ -29,6 +36,23 @@ class SocialController extends Controller
     public function store(Request $request)
     {
         //
+        $ds = Str::uuid('uuid')->toString();
+
+        $request->validate([
+           'name', 
+           'icon',
+        ]);
+        if($request->has('icon')){
+
+            $result = $request->icon->storeOnCloudinaryAs('social_media_icons', "_".$ds );
+        }
+        Social::create([
+            'name' => $request->name, 
+            'icon' => isset($result) ? $result->getPath() : '',
+            'url' => $request->url
+        ]);
+
+        return redirect()->route('social.index');
     }
 
     /**
@@ -45,6 +69,7 @@ class SocialController extends Controller
     public function edit(Social $social)
     {
         //
+        return view('socials.create',compact('social'));
     }
 
     /**
@@ -53,6 +78,34 @@ class SocialController extends Controller
     public function update(Request $request, Social $social)
     {
         //
+
+
+        if($request->has('name')){
+            Social::where('id', $social->id)->update([
+                'name' => $request->name, 
+            ]); 
+        }
+
+
+        if($request->has('url')){
+            Social::where('id', $social->id)->update([
+                'url' => $request->url, 
+            ]); 
+        }
+
+        if($request->has('icon')){
+
+            $result = $request->icon->storeOnCloudinaryAs('social_media_icons', "_".$social->name.$ds );
+
+            Social::where('id', $social->id)->update([
+                'icon' => $result->getPath(), 
+            ]);
+        }
+
+
+        return redirect()->route('social.index');
+
+
     }
 
     /**
@@ -61,5 +114,19 @@ class SocialController extends Controller
     public function destroy(Social $social)
     {
         //
+        $social->delete();
+
+        return redirect()->back();
+    }
+
+
+    public function getsocials(){
+
+        $socials = SocialResource::collection(Social::all());
+
+        return response([
+            'data' => $socials,
+            'status' => "ok"
+        ]);
     }
 }

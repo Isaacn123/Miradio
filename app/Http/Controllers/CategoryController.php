@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Radio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
@@ -11,6 +12,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\MessageResource;
 use App\Models\Message;
+use App\Http\Resources\RadioCategoryDetailsResource;
 
 class CategoryController extends Controller
 {
@@ -149,5 +151,18 @@ class CategoryController extends Controller
            'success' => "successfully retrieved."    
         ]);
    
+       }
+
+       public function category_details($id){
+
+        $posts =  Radio::where('category_id',$id)->get();
+        
+        $category =  Category::where('id',$id)->first();
+
+        return response([
+        'status' => 'ok',
+        'category' =>  $category,
+        'posts' => $posts,
+        ]);
        }
 }

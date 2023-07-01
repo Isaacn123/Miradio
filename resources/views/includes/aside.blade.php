@@ -264,11 +264,11 @@
                         <i class="material-icons">view_list</i> <span class="ms-1 d-none d-sm-inline">Manage Messages</span></a>
                     </li>
                     <li>
-                        <a href="#"  class="nav-link px-0 align-middle">
+                        <a href="{{ route('radio.index')}}"  class="nav-link px-0 align-middle">
                         <i class="material-icons">library_books</i><span class="ms-1 d-none d-sm-inline">Manage Radio</span> </a>
                     </li>                  
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="{{route('social.index') }}" class="nav-link px-0 align-middle">
                         <i class="material-icons">people</i> <span class="ms-1 d-none d-sm-inline">Manage Social</span> </a>
                     </li>
 
@@ -278,6 +278,10 @@
                             <span class="ms-1 d-none d-sm-inline">Manage Ads</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('role.index')}}"  class="nav-link px-0 align-middle">
+                        <i class="material-icons">library_books</i><span class="ms-1 d-none d-sm-inline">Manage Roles</span> </a>
+                    </li>  
 
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
@@ -287,21 +291,21 @@
                     </li>
 
                     <li>
-                        <a href="#p" class="nav-link px-0 align-middle">
+                        <a href="{{route('admin.index')}}" class="nav-link px-0 align-middle">
                             <i class="material-icons">people</i>
                             <span class="ms-1 d-none d-sm-inline">Administrators</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="{{route('setting.index')}}" class="nav-link px-0 align-middle">
                             <i class="material-icons">settings</i>
                             <span class="ms-1 d-none d-sm-inline">Settings</span>
                         </a>
                     </li>
 
                     <li class="nav-item" class="nav-link px-0 align-middle">
-                        <a href="#">
+                        <a href="{{route('licence.index')}}">
                             <i class="material-icons">vpn_key</i>
                             <span class="ms-1 d-none d-sm-inline">License</span>
                         </a>

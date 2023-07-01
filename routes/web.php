@@ -6,6 +6,12 @@ use App\Http\Controllers\SongsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\AudioController;
+use App\Http\Controllers\RadioController;
+use App\Http\Controllers\SocialController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\LicenseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +37,12 @@ Route::resource('/songs', SongsController::class)->middleware('auth');
 Route::resource('/category', CategoryController::class)->middleware('auth');
 Route::resource('/message',  MessageController::class)->middleware('auth');
 Route::resource('/audios',  AudioController::class)->middleware('auth');
+Route::resource('/radio',  RadioController::class)->middleware('auth');
+Route::resource('/social', SocialController::class)->middleware('auth');
+Route::resource('/admin', AdminController::class)->middleware('auth');
+Route::resource('/role', RoleController::class)->middleware('auth');
+Route::resource('/setting', SettingController::class)->middleware('auth');
+Route::resource('/licence', LicenseController::class)->middleware('auth');
 // / Categories
 // features
 // Route::get('changeStatus', 'CategoryController@changeStatus');
@@ -46,6 +58,9 @@ Route::post('songs/{album}/store',[App\Http\Controllers\SongsController::class, 
 Route::get('audios/{message}/create',[App\Http\Controllers\AudioController::class, 'create']  )->name('audios.create')->middleware('auth');
 Route::post('audios/{message}/store',[App\Http\Controllers\AudioController::class, 'store']  )->name('audios.store')->middleware('auth');
 Route::post('message/{message}/upload',[App\Http\Controllers\MessageController::class, 'upload']  )->name('message.upload')->middleware('auth');
+Route::get('changeapi',[App\Http\Controllers\SettingController::class, 'quickRandom']  )->name('changeapi')->middleware('auth');
+
+// Route::get('radio/{radio}/create',[App\Http\Controllers\RadioController::class, 'create']  )->name('radio.create')->middleware('auth');
 // Route::post('message/{message}/create',[App\Http\Controllers\MessageController::class, 'create']  )->name('message.create')->middleware('auth');
 
 

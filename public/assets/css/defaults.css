@@ -14,6 +14,10 @@
   padding: 2%; 
 }
 
+.alert-success{
+  
+  --bs-alert-color: #33b077 !important;
+}
 .navbar{ box-shadow: none!important;  }
 
 ul li a{
