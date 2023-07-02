@@ -65,7 +65,7 @@ class AdminController extends Controller
         // $input['password'] = Hash::make($input['password']);
       
         // $user = User::create($input);
-        $user->assignRole('admin');
+        $user->assignRole($request->roles);
         $user->givePermissionTo('role-create');
 
         $profile = new Profile();
@@ -132,7 +132,7 @@ class AdminController extends Controller
         
         if($request->has('roles')){
 
-            DB::table('model_has_roles')->where('model_id',$id)->delete();
+            DB::table('model_has_roles')->where('model_id',$admin->id)->delete();
     
             $user->assignRole($request->roles);
         }
