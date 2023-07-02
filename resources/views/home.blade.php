@@ -32,9 +32,9 @@
                         <!-- Second Row Here -->
 
                         <div class="row">
-        
+                        
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
+        <a href="{{route('category.index')}}"> 
         <div class="card demo-color-box bg-blue waves-effect col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <br>
         <div class="color-name">MANAGE CATEGORY</div>
@@ -46,10 +46,13 @@
             Total (3) Categories
         </div>
         </div>
+        </a>
         </div>
+  
 
+   
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
+            <a href="{{route('radio.index')}}" class="col-lg-4"> 
             <div class="card demo-color-box bg-blue waves-effect col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <br>
             <div class="color-name">MANAGE RADIO</div>
@@ -61,7 +64,9 @@
                 Total (3) Radios
             </div>
             </div>
+            </a>
             </div>
+
 
 
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -97,7 +102,7 @@ Notify your Users
 </div>
 
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
+<a href="{{route('admin.index')}}" class="col-lg-4"> 
 <div class="card demo-color-box bg-blue waves-effect col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <br>
 <div class="color-name">ADMINISTRATOR</div>
@@ -108,14 +113,14 @@ Notify your Users
 <div class="color-class-name">
 Admin Panel Privileges
 </div>
-</div>
+</div></a>
 </div>
 
 
 
 
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
+<a href="{{route('setting.index')}}" class="col-lg-4"> 
 <div class="card demo-color-box bg-blue waves-effect col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <br>
 <div class="color-name">SETTINGS</div>
@@ -126,9 +131,23 @@ Admin Panel Privileges
 <div class="color-class-name">
 Key and Privacy Settings
 </div>
-</div>
+</div></a>
 </div>
 
+<div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+<a href="{{route('setting.index')}}" class="col-lg-4"> 
+<div class="card demo-color-box bg-blue waves-effect col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<br>
+<div class="color-name">ROLES</div>
+<div class="color-name"></div>
+<div class="color-name">
+<i class="material-icons">settings</i>
+</div>
+<div class="color-class-name">
+Key and Privacy Settings
+</div>
+</div></a>
+</div>
 
 
 </div>

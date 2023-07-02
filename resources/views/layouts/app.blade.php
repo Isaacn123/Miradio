@@ -61,6 +61,9 @@
             right: 0;
             margin: auto;
         }
+        a{
+            text-decoration:none !important;
+        }
     </style>
     
     <style>
