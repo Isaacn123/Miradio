@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Profile;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use DB;
@@ -66,6 +67,15 @@ class AdminController extends Controller
         // $user = User::create($input);
         $user->assignRole($request->input('roles'));
         $user->givePermissionTo('role-create');
+
+        $profile = new Profile();
+        $profile->email = $request->email;
+        $profile->user_id = $user->id;
+        $profile->full_name = $user->name;
+        $profile->save();
+        $user->update([
+        'profile_id' => $profile->id,
+        ]);
 
         // dd($request->roles);
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\LicenseController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,7 @@ Route::resource('/admin', AdminController::class)->middleware('auth');
 Route::resource('/role', RoleController::class)->middleware('auth');
 Route::resource('/setting', SettingController::class)->middleware('auth');
 Route::resource('/licence', LicenseController::class)->middleware('auth');
+Route::resource('profiles', ProfileController::class);
 // / Categories
 // features
 // Route::get('changeStatus', 'CategoryController@changeStatus');
@@ -59,6 +61,8 @@ Route::get('audios/{message}/create',[App\Http\Controllers\AudioController::clas
 Route::post('audios/{message}/store',[App\Http\Controllers\AudioController::class, 'store']  )->name('audios.store')->middleware('auth');
 Route::post('message/{message}/upload',[App\Http\Controllers\MessageController::class, 'upload']  )->name('message.upload')->middleware('auth');
 Route::get('changeapi',[App\Http\Controllers\SettingController::class, 'quickRandom']  )->name('changeapi')->middleware('auth');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 // Route::get('radio/{radio}/create',[App\Http\Controllers\RadioController::class, 'create']  )->name('radio.create')->middleware('auth');
 // Route::post('message/{message}/create',[App\Http\Controllers\MessageController::class, 'create']  )->name('message.create')->middleware('auth');
