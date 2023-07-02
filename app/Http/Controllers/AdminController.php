@@ -65,7 +65,7 @@ class AdminController extends Controller
         // $input['password'] = Hash::make($input['password']);
       
         // $user = User::create($input);
-        $user->assignRole($request->input('roles'));
+        $user->assignRole('admin');
         $user->givePermissionTo('role-create');
 
         $profile = new Profile();
@@ -76,6 +76,10 @@ class AdminController extends Controller
         $user->update([
         'profile_id' => $profile->id,
         ]);
+
+    //     $user->assignRole('writer');
+
+    //    $role->givePermissionTo('edit articles');
 
         // dd($request->roles);
 
