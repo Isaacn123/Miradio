@@ -135,7 +135,7 @@ Key and Privacy Settings
 </div>
 
 <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
-<a href="{{route('setting.index')}}" class="col-lg-4"> 
+<a href="{{route('role.index')}}" class="col-lg-4"> 
 <div class="card demo-color-box bg-blue waves-effect col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <br>
 <div class="color-name">ROLES</div>
@@ -144,7 +144,7 @@ Key and Privacy Settings
 <i class="material-icons">settings</i>
 </div>
 <div class="color-class-name">
-Key and Privacy Settings
+Set Administration Roles
 </div>
 </div></a>
 </div>
