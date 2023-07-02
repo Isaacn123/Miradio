@@ -245,7 +245,8 @@
                 <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline">Menu</span>
                 </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                <!-- mb-sm-auto -->
+                <ul class="nav nav-pills flex-column  mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <a href="{{ route('home')}}" class="nav-link align-middle px-0">
                         <i class="material-icons">dashboard</i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
@@ -313,6 +314,7 @@
 
                 </ul>
                 <hr>
+                <br>
                 <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://res.cloudinary.com/padshare/image/upload/v1659459017/Profile/user_1659459015.png" alt="hugenerd" width="30" height="30" class="rounded-circle">

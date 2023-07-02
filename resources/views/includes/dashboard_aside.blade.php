@@ -18,24 +18,24 @@
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto"> </ul>
+                    <!-- <ul class="navbar-nav me-auto"> </ul> -->
 
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                    @guest
                    
                     <!-- Authentication Links -->
                       
-                            @if (Route::has('login'))
+                            <!-- @if (Route::has('login')) -->
                                 <!-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li> -->
-                            @endif
+                            <!-- @endif -->
 
-                            @if (Route::has('register'))
+                            <!-- @if (Route::has('register')) -->
                                 <!-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li> -->
-                            @endif
+                            <!-- @endif -->
 
                    <!-- <li class="nav-item">M</li> -->
                    
