@@ -127,7 +127,20 @@ class CategoryController extends Controller
     }
 
     public function fetch(){
-        return CategoryResource::collection(Category::with('messages')->orderBy('id', 'desc')->paginate(25));
+        $c = CategoryResource::collection(Category::with('messages')->get());
+        // $key = $c->search(function($item) {
+        //     return $item->category_name != 'Radios';
+        // });
+
+        $d = 'Radios';
+
+        $filtered = $c->filter(function ($value, $key) use($d){
+            return $value['category_name']!=$d;
+        });
+        
+       return   $filtered;
+
+        // return CategoryResource::collection(Category::with('messages')->orderBy('id', 'desc')->paginate(25));
       }
 
       public function single_category($id){

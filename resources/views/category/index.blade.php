@@ -11,7 +11,7 @@
 <div class="row py-2" >
     <div class="col-6 ">Albums</div>
     <div class="col-6 d-flex justify-content-end">
-        <a href="{{ route('category.create') }}" class="btn btn-success mt-6 ">Create Album</a>
+        <a href="{{ route('category.create') }}" class="btn btn-success mt-6 ">Create Category</a>
     </div>
 </div>
 </div>
