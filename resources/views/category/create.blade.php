@@ -68,7 +68,6 @@
 @endif
     <div class="form-group mt-2">
      <button  class="btn btn-success" >
-       
          {{isset($category) ? 'Edit Category' : '  Add Category'}}
      </button>
     </div>

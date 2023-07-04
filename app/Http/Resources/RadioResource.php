@@ -15,7 +15,7 @@ class RadioResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'radio_id' => $this->id,
             'category_id' => $this-> category_id,
             'radio_name' => $this->radio_name,
             'radio_image' => $this->radio_image,
