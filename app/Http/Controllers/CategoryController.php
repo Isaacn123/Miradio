@@ -183,6 +183,12 @@ class CategoryController extends Controller
 
        public function categories(){
         
-        return ModelCategoryResource::collection(Category::all());
+        $categories =  ModelCategoryResource::collection(Category::all());
+
+        return response([
+            "status" => "ok",
+            "count" => Category::count(),
+            "categories" => $categories
+        ]);
        }
 }
