@@ -14,6 +14,7 @@ use App\Http\Resources\MessageResource;
 use App\Models\Message;
 use App\Http\Resources\ModelCategoryResource;
 use App\Http\Resources\PostRadioResource;
+// use App\Http\Resources\PostMessagesResource;
 use App\Http\Resources\RadioCategoryDetailsResource;
 
 class CategoryController extends Controller
@@ -106,7 +107,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
-
         $category->delete();
         redirect()->back(); 
     }
@@ -157,7 +157,8 @@ class CategoryController extends Controller
 
       public function single_message($id){
 
-        $message = Message::where('id',$id)->with('audios')->first(); 
+        $message = Message::where('id',$id)->with('audios')->first();  
+
         
         return response([
            'data' =>  $message,
@@ -168,15 +169,18 @@ class CategoryController extends Controller
 
        public function category_details($id){
 
-        $posts =   PostRadioResource::collection(Radio::where('category_id',$id)->get());
+           $posts =   PostRadioResource::collection(Radio::where('category_id',$id)->get());
+       // $messages = PostMessagesResource::collection(Message::where('category_id',$id)->get());
+        $messages =   MessageResource::collection(Message::where('cid', $id)->with('category','audios')->paginate(25));
         
-        $category =  Category::where('id',$id)->first();
+        $category =   Category::where('id',$id)->first();
 
         return response([
         'status' => 'ok',
         "count" =>  Radio::count(),
         'category' =>  $category,
         'posts' => $posts,
+        'messages' =>  $messages,
         ]);
 
        }
