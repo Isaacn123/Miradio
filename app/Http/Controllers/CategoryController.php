@@ -13,6 +13,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\MessageResource;
 use App\Models\Message;
 use App\Http\Resources\ModelCategoryResource;
+use App\Http\Resources\PostRadioResource;
 use App\Http\Resources\RadioCategoryDetailsResource;
 
 class CategoryController extends Controller
@@ -167,15 +168,17 @@ class CategoryController extends Controller
 
        public function category_details($id){
 
-        $posts =  Radio::where('category_id',$id)->get();
+        $posts =   PostRadioResource::collection(Radio::where('category_id',$id)->get());
         
         $category =  Category::where('id',$id)->first();
 
         return response([
         'status' => 'ok',
+        "count" =>  Radio::count(),
         'category' =>  $category,
         'posts' => $posts,
         ]);
+
        }
 
 
