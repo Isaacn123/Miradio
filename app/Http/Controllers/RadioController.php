@@ -175,7 +175,7 @@ class RadioController extends Controller
             'featured'=> $featured,
             'categories' => $categories,
             'recent' => $recent,
-            'radom' => $random,
+            'random' => $random,
             "status" => "ok",
         ]);
     }
