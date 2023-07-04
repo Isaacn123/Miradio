@@ -12,6 +12,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\MessageResource;
 use App\Models\Message;
+use App\Http\Resources\ModelCategoryResource;
 use App\Http\Resources\RadioCategoryDetailsResource;
 
 class CategoryController extends Controller
@@ -177,5 +178,11 @@ class CategoryController extends Controller
         'category' =>  $category,
         'posts' => $posts,
         ]);
+       }
+
+
+       public function categories(){
+        
+        return ModelCategoryResource::collection(Category::all());
        }
 }

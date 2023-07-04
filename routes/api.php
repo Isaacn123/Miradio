@@ -41,6 +41,9 @@ Route::get('social',[SocialController::class, 'getsocials']);
 Route::get('settings',[SettingController::class, 'getsettings']);
 Route::get('category_detail/{id}',[CategoryController::class, 'category_details']);
 
+Route::get('maincat',[CategoryController::class, 'categories']);
+
+
 
 
 
