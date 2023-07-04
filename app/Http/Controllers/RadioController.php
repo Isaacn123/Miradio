@@ -179,4 +179,15 @@ class RadioController extends Controller
             "status" => "ok",
         ]);
     }
+
+
+
+    public function changeStatus(Request $request)
+    {
+        $category = Radio::find($request->id);
+        $category->featured = $request->status;
+        $category->save();
+  
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }

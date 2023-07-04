@@ -32,12 +32,12 @@
                
 
                   <td>{{ $category->id}}</td>
-                  <td><a href="{{ route('category.show', $category->id)}}">{{ $category->category_name}}</a></td>
+                  <!-- "{{ route('category.show', $category->id)}}" -->
+                  <td><a href="#">{{ $category->category_name}}</a></td>
                   <td>
                 
                 
-
-                    
+                
       <img src="{{ $category->category_image}}" 
       class="rounded-circle" style="width: 40px;"  alt="Avatar" />
 

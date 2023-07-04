@@ -49,6 +49,7 @@ Route::resource('profiles', ProfileController::class);
 // features
 // Route::get('changeStatus', 'CategoryController@changeStatus');
 Route::get('changeStatus', [App\Http\Controllers\CategoryController::class, 'changeStatus'])->name('changeStatus');
+Route::get('changeStatusrad', [App\Http\Controllers\RadioController::class, 'changeStatus'])->name('changeStatusrad');
 Route::get('/categorys',[App\Http\Controllers\CategoryController::class, 'index'] )->name('categorys')->middleware('auth');
 // Albums 
 Route::get('/albums',[App\Http\Controllers\AlbumController::class, 'index'] )->name('albums')->middleware('auth');

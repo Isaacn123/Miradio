@@ -22,10 +22,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
 
-    <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
-    <!-- <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet"/> -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
     <style>
         #loader {
     display: none;
@@ -120,19 +120,19 @@
 <script>
 
 
-document.onreadystatechange = function () {
-            if (document.readyState !== "complete") {
-                document.querySelector(
-                    "body").style.visibility = "hidden";
-                document.querySelector(
-                    "#loader").style.visibility = "visible";
-            } else {
-                document.querySelector(
-                    "#loader").style.display = "none";
-                document.querySelector(
-                    "body").style.visibility = "visible";
-            }
-        };
+// document.onreadystatechange = function () {
+//             if (document.readyState !== "complete") {
+//                 document.querySelector(
+//                     "body").style.visibility = "hidden";
+//                 document.querySelector(
+//                     "#loader").style.visibility = "visible";
+//             } else {
+//                 document.querySelector(
+//                     "#loader").style.display = "none";
+//                 document.querySelector(
+//                     "body").style.visibility = "visible";
+//             }
+//         };
 
 // $(window).on('load', function () {
 //     $('#loading').hide();

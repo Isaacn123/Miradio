@@ -49,8 +49,15 @@
 												{{$radio->radio_url}}									</td>
 											<td> {{ App\Models\Category::find($radio->category_id)->category_name }}</td>
 											<td align="center">
-							            	<a href="manage-radio.php?remove=44" onclick="return confirm('Remove from featured radio?')">
-                                            <i class="material-icons" style="color:#4bae4f">lens</i></a>
+							            	<!-- <a href="manage-radio.php?remove=44" onclick="return confirm('Remove from featured radio?')">
+                                            <i class="material-icons" style="color:#4bae4f">lens</i></a> -->
+
+											<div class="custom-control custom-switch">
+               
+			   <input data-id="{{$radio->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $radio->featured ? 'checked' : '' }}>
+			   </div>
+
+
 							            									            	</td>
 
 											<td><center>
@@ -78,3 +85,29 @@
 
 
             @endsection
+
+
+
+			@section('scripts')
+
+<script>
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+        var id = $(this).data('id'); 
+
+        // console.log(id);
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeStatusrad',
+            data: {'status': status, 'id': id},
+            success: function(data){
+              console.log(data.success)
+            }
+        });
+    })
+  })
+</script>
+@endsection
