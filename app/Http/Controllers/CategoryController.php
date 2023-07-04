@@ -154,8 +154,6 @@ class CategoryController extends Controller
        
       }
 
-
-
       public function single_message($id){
 
         $message = Message::where('id',$id)->with('audios')->first(); 

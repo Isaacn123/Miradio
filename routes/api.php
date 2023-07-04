@@ -43,6 +43,9 @@ Route::get('category_detail/{id}',[CategoryController::class, 'category_details'
 
 Route::get('maincat',[CategoryController::class, 'categories']);
 
+Route::get('{id}/category_detail',[CategoryController::class, 'category_details']);
+
+
 
 
 

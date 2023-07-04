@@ -22,8 +22,6 @@
       
        @foreach($errors->all() as $error)
        <li class="list-group text-danger">{{$error}}</li> 
-    
-    
        @endforeach
     </ul>
    </div>
