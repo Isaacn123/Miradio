@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('onesignal_app_id')->nullable();
             $table->string('onesignal_rest_api_key')->nullable();
             $table->string('protocol_type')->nullable();
-            $table->string('privacy_policy')->nullable();
+            $table->text('privacy_policy')->nullable();
             $table->timestamps();
         });
     }
