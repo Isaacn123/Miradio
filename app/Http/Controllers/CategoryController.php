@@ -108,7 +108,8 @@ class CategoryController extends Controller
     {
         //
         $category->delete();
-        redirect()->back(); 
+      return  redirect()->back(); 
+
     }
 
     // public function approve(Category $training) 
