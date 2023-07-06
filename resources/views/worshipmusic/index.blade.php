@@ -46,7 +46,7 @@
 											<td>{{$worship->music_name}} </td>
 							            	<td><img src="{{$worship->music_image}}" height="48px" width="48px"></td>
 											<td width="30%">
-												{{$worship->music_url}}									</td>
+												{{ Str::limit($worship->music_url,60)}}									</td>
 											<td> {{ App\Models\Category::find($worship->category_id)->category_name }}</td>
 											<td align="center">
 							            	<!-- <a href="manage-radio.php?remove=44" onclick="return confirm('Remove from featured radio?')">
