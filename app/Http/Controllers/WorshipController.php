@@ -71,7 +71,7 @@ class WorshipController extends Controller
             ]);
         }
 
-        return redirect()->route('music.index');
+        return redirect()->route('worshipmusic.index');
 
     }
 
