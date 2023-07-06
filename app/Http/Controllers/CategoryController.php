@@ -132,18 +132,18 @@ class CategoryController extends Controller
     }
 
     public function fetch(){
-        $c = CategoryResource::collection(Category::with('messages')->get());
+        $c = CategoryResource::collection(Category::with('messages','musics')->get());
         // $key = $c->search(function($item) {
         //     return $item->category_name != 'Radios';
         // });
 
-        $d = 'Radios';
+        // $d = 'Radios';
 
-        $filtered = $c->filter(function ($value, $key) use($d){
-            return $value['category_name']!=$d;
-        });
+        // $filtered = $c->filter(function ($value, $key) use($d){
+        //     return $value['category_name']!=$d;
+        // });
         
-       return   $filtered;
+      return $c;
 
         // return CategoryResource::collection(Category::with('messages')->orderBy('id', 'desc')->paginate(25));
       }
