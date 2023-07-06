@@ -101,6 +101,32 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+
+        $ds = Str::uuid('uuid')->toString();
+      
+        
+          if($request->has('category_name')){
+            // $message->update([
+            //     'title' => $message->title,
+            //   ]);
+            Category::where('id',$category->id)->update([
+                'category_name' => $request->category_name,
+              ]);
+          }
+
+          if($request->has('image')){
+            $category->updateMedia($request->image); 
+
+            Category::where('id',$category->id)->update([
+                'category_image' => $message->fetchFirstMedia()['file_url'],
+              ]);
+
+          }
+
+
+          return redirect()->back();
+
+         
     }
 
     /**
