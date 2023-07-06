@@ -118,7 +118,7 @@ class CategoryController extends Controller
             $category->updateMedia($request->image); 
 
             Category::where('id',$category->id)->update([
-                'category_image' => $message->fetchFirstMedia()['file_url'],
+                'category_image' => $category->fetchFirstMedia()['file_url'],
               ]);
 
           }
