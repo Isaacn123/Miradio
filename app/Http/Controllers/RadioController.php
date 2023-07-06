@@ -156,8 +156,8 @@ class RadioController extends Controller
         return response([
             'data' => $posts,
             "status" => "ok",
-            "count" => $posts->count() ,
-            "count_total" => Radio::count() ,
+            "count" => $posts->count(),
+            "count_total" => Radio::count(),
         ]);
     }
 
@@ -170,6 +170,8 @@ class RadioController extends Controller
         $recent = RadioResource::collection(Radio::latest()->take(10)->get());
 
         $random = RadioResource::collection(Radio::orderByRaw("RAND()")->take(10)->get());
+
+        $worship = RadioResource::collection(Radio::orderByRaw("RAND()")->take(10)->get());
 
         return response([
             'featured'=> $featured,

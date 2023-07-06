@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\MessageResource;
+use App\Http\Resources\WorshipMusicResource;
 use App\Models\Message;
+use App\Models\Worship;
 use App\Http\Resources\ModelCategoryResource;
 use App\Http\Resources\PostRadioResource;
 // use App\Http\Resources\PostMessagesResource;
@@ -173,6 +175,8 @@ class CategoryController extends Controller
            $posts =   PostRadioResource::collection(Radio::where('category_id',$id)->get());
        // $messages = PostMessagesResource::collection(Message::where('category_id',$id)->get());
         $messages =   MessageResource::collection(Message::where('cid', $id)->with('category','audios')->paginate(25));
+
+        $musicworships =   WorshipMusicResource::collection(Worship::where('category_id', $id)->with('category')->paginate(25));
         
         $category =   Category::where('id',$id)->first();
 
@@ -182,6 +186,7 @@ class CategoryController extends Controller
         'category' =>  $category,
         'posts' => $posts,
         'messages' =>  $messages,
+        'musicworships' => $musicworships,
         ]);
 
        }

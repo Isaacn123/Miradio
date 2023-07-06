@@ -22,5 +22,11 @@ class Category extends Model
     
         return $this->hasMany('App\Models\Message','cid', 'id');  
     }
+
+    public function musics(){
+    
+        return $this->hasMany('App\Models\Worship','category_id', 'id');  
+    }
+
 }
 

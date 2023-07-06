@@ -13,6 +13,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorshipController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,14 +45,20 @@ Route::resource('/admin', AdminController::class)->middleware('auth');
 Route::resource('/role', RoleController::class)->middleware('auth');
 Route::resource('/setting', SettingController::class)->middleware('auth');
 Route::resource('/licence', LicenseController::class)->middleware('auth');
+Route::resource('/worshipmusic', WorshipController::class)->middleware('auth');
 Route::resource('profiles', ProfileController::class);
-// / Categories
+
+// / Categories  
+
 // features
 // Route::get('changeStatus', 'CategoryController@changeStatus');
 Route::get('changeStatus', [App\Http\Controllers\CategoryController::class, 'changeStatus'])->name('changeStatus');
 Route::get('changeStatusrad', [App\Http\Controllers\RadioController::class, 'changeStatus'])->name('changeStatusrad');
+
+Route::get('changeMusicStatus', [App\Http\Controllers\WorshipController::class, 'changeStatus'])->name('changeMusicStatus');
 Route::get('/categorys',[App\Http\Controllers\CategoryController::class, 'index'] )->name('categorys')->middleware('auth');
-// Albums 
+// Albums        
+ 
 Route::get('/albums',[App\Http\Controllers\AlbumController::class, 'index'] )->name('albums')->middleware('auth');
 Route::get('/alb_create',[App\Http\Controllers\AlbumController::class, 'create']  )->middleware('auth');
 Route::get('/store',[App\Http\Controllers\AlbumController::class, 'store']  )->middleware('auth');
@@ -62,6 +69,7 @@ Route::get('audios/{message}/create',[App\Http\Controllers\AudioController::clas
 Route::post('audios/{message}/store',[App\Http\Controllers\AudioController::class, 'store']  )->name('audios.store')->middleware('auth');
 Route::post('message/{message}/upload',[App\Http\Controllers\MessageController::class, 'upload']  )->name('message.upload')->middleware('auth');
 Route::get('changeapi',[App\Http\Controllers\SettingController::class, 'quickRandom']  )->name('changeapi')->middleware('auth');
+
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 

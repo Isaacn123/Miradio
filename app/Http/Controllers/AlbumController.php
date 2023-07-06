@@ -119,6 +119,7 @@ public function __construct(){
     public function destroy(Album $album)
     {
         //
+       
         $album->delete();
         return redirect()->back(); 
     }

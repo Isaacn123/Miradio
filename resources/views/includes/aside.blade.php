@@ -280,6 +280,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{route('worshipmusic.index')}}" class="nav-link px-0 align-middle">
+                            <i class="material-icons">headset_mic</i>
+                            <span class="ms-1 d-none d-sm-inline">Manage Worship Music</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('role.index')}}"  class="nav-link px-0 align-middle">
                         <i class="material-icons">library_books</i><span class="ms-1 d-none d-sm-inline">Manage Roles</span> </a>
                     </li>  

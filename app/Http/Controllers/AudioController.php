@@ -14,7 +14,7 @@ class AudioController extends Controller
     public function index()
     {
         //
-
+      
     }
 
     /**
@@ -25,7 +25,6 @@ class AudioController extends Controller
         //
 
         // dd($message->id);
-
         return view('audios.create', compact('message'));
     }
 
