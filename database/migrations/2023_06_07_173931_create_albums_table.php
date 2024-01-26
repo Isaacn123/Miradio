@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('artist')->nullable();
-            $table->number('featured_albums')->default(0);
+            $table->integer('featured_albums')->default(0);
             $table->string('url')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
